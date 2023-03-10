@@ -154,7 +154,7 @@ pub struct Transport {
 
 impl Transport {
     /// Initialize the transport struct without any information.
-    pub(crate) fn new(sample_rate: f32) -> Self {
+    pub fn new(sample_rate: f32) -> Self {
         Self {
             playing: false,
             recording: false,
