@@ -74,6 +74,7 @@ pub trait ProcessContext<P: Plugin> {
     /// ProcessStatus::Normal
     /// ```
     fn next_event(&mut self) -> Option<PluginNoteEvent<P>>;
+    fn peek_event(&self) -> Option<&PluginNoteEvent<P>>;
 
     /// Send an event to the host. Only available when
     /// [`Plugin::MIDI_OUTPUT`][crate::prelude::Plugin::MIDI_INPUT] is set. Will not do anything

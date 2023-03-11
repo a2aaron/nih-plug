@@ -103,6 +103,10 @@ impl<P: ClapPlugin> ProcessContext<P> for WrapperProcessContext<'_, P> {
         self.input_events_guard.pop_front()
     }
 
+    fn peek_event(&self) -> Option<&PluginNoteEvent<P>> {
+        self.input_events_guard.front()
+    }
+
     fn send_event(&mut self, event: PluginNoteEvent<P>) {
         self.output_events_guard.push_back(event);
     }

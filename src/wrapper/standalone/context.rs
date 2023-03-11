@@ -89,6 +89,10 @@ impl<P: Plugin, B: Backend<P>> ProcessContext<P> for WrapperProcessContext<'_, P
         }
     }
 
+    fn peek_event(&self) -> Option<&PluginNoteEvent<P>> {
+        self.input_events.get(self.input_events_idx)
+    }
+
     fn send_event(&mut self, event: PluginNoteEvent<P>) {
         self.output_events.push(event);
     }
